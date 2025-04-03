@@ -1,0 +1,23 @@
+{
+  "name": "bittytax_to_blockpit",
+  "version": "1.0.0",
+  "description": "Converts BittyTax reports to BlockPit report format",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "keywords": [
+    "BittyTax",
+    "BlockPit",
+    "Convert",
+    "Transactions"
+  ],
+  "author": "sea212",
+  "license": "WTFPL",
+  "dependencies": {
+    "xlsx": "^0.18.5",
+    "js-yaml": "^4.1.0",
+    "yargs": "^17.0.1"
+  }
+}
