@@ -2,10 +2,11 @@
   "name": "bittytax_to_blockpit",
   "version": "1.0.0",
   "description": "Converts BittyTax reports to BlockPit report format",
-  "main": "main.js",
+  "main": "src/main.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node main.js"
+    "start": "ts-node -r tsconfig-paths/register src/main.ts",
+    "build": "tsc"
   },
   "keywords": [
     "BittyTax",
@@ -16,8 +17,17 @@
   "author": "sea212",
   "license": "WTFPL",
   "dependencies": {
-    "xlsx": "^0.18.5",
     "js-yaml": "^4.1.0",
+    "xlsx": "^0.18.5",
     "yargs": "^17.0.1"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.14.0",
+    "@types/xlsx": "^0.0.36",
+    "@types/yargs": "^17.0.33",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.8.3"
   }
 }
