@@ -1,10 +1,13 @@
 import fs from "fs";
 import path from "path";
-import * as XLSX from "xlsx";
+import xlsx from "xlsx";
+const { readFile, writeFile } = xlsx;
 import yargs from "yargs/yargs";
 import { hideBin } from "yargs/helpers";
-import { bittytaxToBlockpit } from "components/convert";
-import { MappingConfig } from "types";
+import { bittytaxToBlockpit } from "./components/convert.js";
+import { MappingConfig } from "./components/types.js";
+
+console.log("\n");
 
 // Set up command line arguments
 const argv = yargs(hideBin(process.argv))
@@ -54,12 +57,12 @@ try {
     (argv.output as string) || "blockpit_transactions.xlsx"; // Default output file name
 
   // Read input XLSX files into workbooks
-  const workbooks: XLSX.WorkBook[] = [];
+  const workbooks: xlsx.WorkBook[] = [];
 
   for (const filePath of inputFilePaths) {
     try {
       // Load workbook with cell dates enabled
-      const workbook = XLSX.readFile(filePath, { cellDates: true });
+      const workbook = readFile(filePath, { cellDates: true });
       workbooks.push(workbook);
     } catch (error) {
       console.error(
@@ -84,7 +87,7 @@ try {
     dateNF: "yyyy-mm-dd hh:mm:ss",
   };
 
-  XLSX.writeFile(resultWorkbook, outputFileName, writeOpts);
+  writeFile(resultWorkbook, outputFileName, writeOpts);
   console.log(`Aggregation complete. Output file: ${outputFileName}`);
   console.log("\nWant to support my work? https://haraldheckmann.de/donate");
 } catch (error) {

@@ -1,15 +1,21 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "module": "commonjs",
-    "baseUrl": "./src",
-    "paths": {
-      "*": ["*"]
-    },
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "rootDir": "./src",
+    "outDir": "./dist",
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
-  }
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
+  "exclude": ["src/**/types.ts", "src/main.ts"],
+  "include": ["src/**/*"]
 }

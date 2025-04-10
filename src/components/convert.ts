@@ -1,23 +1,24 @@
-import * as XLSX from "xlsx";
-import { MappingConfig } from "types";
-// Import mapping configuration directly now that resolveJsonModule is enabled
-import defaultMapping from "config/mapping.json";
+import type { WorkBook } from "xlsx";
+import { utils } from "xlsx";
+import { MappingConfig } from "./types.js";
+// Import mapping configuration with the assertion syntax
+import defaultMapping from "../config/mapping.json" assert { type: "json" };
 
 /**
  * Aggregates data from multiple workbooks into a single output workbook based on mapping configurations.
- * @param {XLSX.WorkBook[]} workbooks - Array of XLSX workbooks
+ * @param {xlsx.WorkBook[]} workbooks - Array of XLSX workbooks
  * @param {MappingConfig} config - Mapping configuration object
- * @returns {XLSX.WorkBook} - The generated XLSX workbook
+ * @returns {xlsx.WorkBook} - The generated XLSX workbook
  */
 export const bittytaxToBlockpit = (
-  workbooks: XLSX.WorkBook[],
+  workbooks: WorkBook[],
   config?: MappingConfig,
-): XLSX.WorkBook => {
+): WorkBook => {
   const { cell_mapping, output_order, data_mapping } =
     config || (defaultMapping as MappingConfig);
 
   // Initialize the result workbook and worksheet
-  const resultWorkbook = XLSX.utils.book_new();
+  const resultWorkbook = utils.book_new();
   const resultData: Record<string, string | number | Date>[] = [];
 
   // Process each workbook
@@ -27,9 +28,9 @@ export const bittytaxToBlockpit = (
     const worksheet = workbook.Sheets[sheetName];
 
     // Convert to JSON with dates
-    const data = XLSX.utils.sheet_to_json(worksheet, {
+    const data = utils.sheet_to_json(worksheet, {
       raw: false,
-      dateNF: "yyyy-mm-dd hh:mm:ss",
+      dateNF: "yyyy-mm-dd hh:mm:ss" as string,
     });
 
     // Process each row
@@ -89,18 +90,17 @@ export const bittytaxToBlockpit = (
   });
 
   // Create the result worksheet with headers from output_order
-  const resultWorksheet = XLSX.utils.json_to_sheet(resultData, {
+  const resultWorksheet = utils.json_to_sheet(resultData, {
     header: output_order,
-    dateNF: "yyyy-mm-dd hh:mm:ss",
+    dateNF: "yyyy-mm-dd hh:mm:ss" as string,
   });
 
   // Explicitly set the date format for the "Date (UTC)" column
-  const dateCol = XLSX.utils.decode_col("A"); // Assuming "Date (UTC)" is the first column
-  const range = XLSX.utils.decode_range(resultWorksheet["!ref"] || "A1:A1");
+  const dateCol = utils.decode_col("A"); // Assuming "Date (UTC)" is the first column
+  const range = utils.decode_range(resultWorksheet["!ref"] || "A1:A1");
 
   for (let row = range.s.r + 1; row <= range.e.r; row++) {
-    const cell =
-      resultWorksheet[XLSX.utils.encode_cell({ r: row, c: dateCol })];
+    const cell = resultWorksheet[utils.encode_cell({ r: row, c: dateCol })];
     if (cell) {
       cell.t = "d"; // Set cell type to date
       cell.z = "yyyy-mm-dd hh:mm:ss"; // Set date format
@@ -108,11 +108,9 @@ export const bittytaxToBlockpit = (
   }
 
   // Add the worksheet to the workbook
-  XLSX.utils.book_append_sheet(
-    resultWorkbook,
-    resultWorksheet,
-    "Aggregated Data",
-  );
+  utils.book_append_sheet(resultWorkbook, resultWorksheet, "Aggregated Data");
 
   return resultWorkbook;
 };
+
+export default bittytaxToBlockpit;
