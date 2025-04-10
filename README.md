@@ -34,8 +34,6 @@ To convert BittyTax files and specify an output file:
 npm start -- -o output.xlsx input1.xlsx input2.xlsx
 ```
 
-## Try Out Online
-
 [![Try Out Online](https://img.shields.io/badge/Try%20Out%20Online-brightgreen)](https://haraldheckmann.de/bittytax-to-blockpit)
 
 
