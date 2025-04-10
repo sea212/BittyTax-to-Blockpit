@@ -79,6 +79,7 @@ try {
   
   XLSX.writeFile(resultWorkbook, outputFileName, writeOpts);
   console.log(`Aggregation complete. Output file: ${outputFileName}`);
+  console.log('\nWant to support my work? https://haraldheckmann.de/donate');
   
 } catch (error) {
   console.error('Error processing files:', (error as Error).message);
