@@ -1,6 +1,10 @@
 {
-  "name": "bittytax_to_blockpit",
+  "name": "bittytax-to-blockpit",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sea212/BittyTax-to-Blockpit.git"
+  },
   "description": "Converts BittyTax reports to BlockPit report format",
   "main": "src/main.ts",
   "scripts": {
