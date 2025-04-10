@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node -r tsconfig-paths/register src/main.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "format": "prettier --write .",
+    "lint": "prettier --check . && eslint ."
   },
   "keywords": [
     "BittyTax",
@@ -22,12 +24,19 @@
     "yargs": "^17.0.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.24.0",
+    "@eslint/json": "^0.11.0",
+    "@eslint/markdown": "^6.3.0",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^22.14.0",
-    "@types/xlsx": "^0.0.36",
+    "@types/xlsx": "^0.0.35",
     "@types/yargs": "^17.0.33",
+    "eslint": "^9.24.0",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.3",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.29.1"
   }
 }

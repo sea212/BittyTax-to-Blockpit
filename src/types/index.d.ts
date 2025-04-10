@@ -1,5 +1,5 @@
 // Import necessary types from the xlsx library
-import * as XLSX from 'xlsx';
+import * as XLSX from "xlsx";
 
 // Define the MappingConfig interface based on the structure of your mapping.yaml
 export interface MappingConfig {
@@ -17,5 +17,5 @@ export interface MappingConfig {
 // Define the function signature for bittytaxToBlockpit
 export declare function bittytaxToBlockpit(
   workbooks: XLSX.WorkBook[],
-  config?: MappingConfig // Optional parameter for custom mapping configuration
+  config?: MappingConfig, // Optional parameter for custom mapping configuration
 ): XLSX.WorkBook;

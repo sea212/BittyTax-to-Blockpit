@@ -7,6 +7,7 @@ This project converts BittyTax transaction format to Blockpit transaction format
 To execute the code locally, follow these steps:
 
 1. **Install Dependencies**:
+
    ```bash
    npm install
    ```
@@ -18,24 +19,26 @@ To execute the code locally, follow these steps:
 
 ## Command Line Options
 
-- `-o, --output <BLOCKPIT_OUTPUT>.xlsx`: 
+- `-o, --output <BLOCKPIT_OUTPUT>.xlsx`:
+
   - **Description**: Specifies the name of the output XLSX file. If not provided, the default output file name will be `blockpit_transactions.xlsx`.
 
-- `-c, --config <path_to_config.json>`: 
+- `-c, --config <path_to_config.json>`:
+
   - **Description**: Path to a custom mapping configuration file in JSON format. This option is optional.
 
-- `-h, --help`: 
+- `-h, --help`:
   - **Description**: Displays help information about the command line usage.
 
 ## Example Usage
 
 To convert BittyTax files and specify an output file:
+
 ```bash
 npm start -- -o output.xlsx input1.xlsx input2.xlsx
 ```
 
 [![Try Out Online](https://img.shields.io/badge/Try%20Out%20Online-brightgreen)](https://haraldheckmann.de/bittytax-to-blockpit)
-
 
 ## Support
 
