@@ -137,3 +137,6 @@ dist
 
 # package-lock
 package-lock.json
+
+# Resulting data
+*.xlsx
