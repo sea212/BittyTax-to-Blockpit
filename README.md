@@ -42,4 +42,7 @@ npm start -- -o output.xlsx input1.xlsx input2.xlsx
 
 ## Support
 
-Want to support my work? [![Donate](https://img.shields.io/badge/Donate-blue)](https://haraldheckmann.de/donate)
+Want to support my work?
+
+[![Donate](https://img.shields.io/badge/Donate-blue)](https://haraldheckmann.de/donate)
+[![Get a 15% discount on Blockpit](https://img.shields.io/badge/Get_a_15%25_discount_on_Blockpit-orange)](https://blockpit.cello.so/cICQSaHqIxL)
