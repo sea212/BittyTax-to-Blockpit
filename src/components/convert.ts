@@ -95,6 +95,18 @@ export const bittytaxToBlockpit = (
     dateNF: "yyyy-mm-dd hh:mm:ss" as string,
   });
 
+  // Set column widths based on the maximum length of the content
+  const colWidths = output_order.map((column) => {
+    const maxLength = Math.max(
+      ...resultData.map((row) => (row[column] ? String(row[column]).length : 0)),
+      0
+    );
+    return { wch: maxLength + 2 }; // Adding a little extra space
+  });
+
+  // Apply the column widths to the worksheet
+  resultWorksheet['!cols'] = colWidths;
+
   // Explicitly set the date format for the "Date (UTC)" column
   const dateCol = utils.decode_col("A"); // Assuming "Date (UTC)" is the first column
   const range = utils.decode_range(resultWorksheet["!ref"] || "A1:A1");
