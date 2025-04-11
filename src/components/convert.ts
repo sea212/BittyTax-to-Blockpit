@@ -2,7 +2,7 @@ import type { WorkBook } from "xlsx";
 import { utils } from "xlsx";
 import { MappingConfig } from "./types.js";
 // Import mapping configuration with the assertion syntax
-import defaultMapping from "../config/mapping.json" assert { type: "json" };
+import defaultMapping from "../config/mapping.json" with { type: "json" };
 
 /**
  * Aggregates data from multiple workbooks into a single output workbook based on mapping configurations.
