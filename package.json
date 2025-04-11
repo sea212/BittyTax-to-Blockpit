@@ -6,17 +6,18 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sea212/BittyTax-to-Blockpit.git"
+    "url": "git+https://github.com/sea212/BittyTax-to-Blockpit.git"
   },
   "description": "Converts BittyTax reports to BlockPit report format",
   "main": "dist/index.js",
   "files": [
     "/dist"
   ],
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/tsx src/main.ts",
-    "build": "./node_modules/.bin/tsc",
+    "start": "tsx src/main.ts",
+    "build": "tsc",
     "format": "prettier --write .",
     "lint": "prettier --check . && eslint ."
   },

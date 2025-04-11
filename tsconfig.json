@@ -5,6 +5,7 @@
     "moduleResolution": "node",
     "rootDir": "./src",
     "outDir": "./dist",
+    "declaration": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -16,6 +17,6 @@
     "esm": true,
     "experimentalSpecifierResolution": "node"
   },
-  "exclude": ["src/**/types.ts", "src/main.ts"],
+  "exclude": ["node_modules"],
   "include": ["src/**/*"]
 }
