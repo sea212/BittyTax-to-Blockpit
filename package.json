@@ -1,15 +1,22 @@
 {
   "name": "bittytax-to-blockpit",
   "version": "1.0.0",
+  "author": "sea212",
+  "license": "WTFPL",
+  "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sea212/BittyTax-to-Blockpit.git"
+    "url": "git+https://github.com/sea212/BittyTax-to-Blockpit.git"
   },
   "description": "Converts BittyTax reports to BlockPit report format",
-  "main": "src/main.ts",
+  "main": "dist/index.js",
+  "files": [
+    "/dist"
+  ],
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node -r tsconfig-paths/register src/main.ts",
+    "start": "tsx src/main.ts",
     "build": "tsc",
     "format": "prettier --write .",
     "lint": "prettier --check . && eslint ."
@@ -20,8 +27,6 @@
     "Convert",
     "Transactions"
   ],
-  "author": "sea212",
-  "license": "WTFPL",
   "dependencies": {
     "js-yaml": "^4.1.0",
     "xlsx": "^0.18.5",
@@ -39,7 +44,7 @@
     "globals": "^16.0.0",
     "prettier": "^3.5.3",
     "ts-node": "^10.9.2",
-    "tsconfig-paths": "^4.2.0",
+    "tsx": "^4.19.3",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.29.1"
   }
